@@ -1,4 +1,5 @@
 import pytest
+from sqlalchemy import create_engine
 
 from dbtests.skeleton import fib, main
 
@@ -23,3 +24,15 @@ def test_main(capsys):
     main(["7"])
     captured = capsys.readouterr()
     assert "The 7-th Fibonacci number is 13" in captured.out
+
+def test_connection():
+    username = "SA"
+    password = "Admin123"
+    server = "localhost"
+    database = "Faker"
+    port = 1433
+    connect_string = f"mssql+pymssql://{username}:{password}@{server}:{port}/{database}"
+
+    engine = create_engine(connect_string)
+    conn = engine.connect()
+    conn.close()
