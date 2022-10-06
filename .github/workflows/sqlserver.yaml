@@ -24,6 +24,11 @@ jobs:
       #     # it is acceptable to use a plain-text password
       #     docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Admin123" \
       #     -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-latest
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade setuptools pip wheel
+          # Use the latest published version for myself :)
+          python -m pip install tox-gh-actions
       - name: Test with tox
         run: tox
         continue-on-error: false
