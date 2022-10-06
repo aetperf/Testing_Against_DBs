@@ -17,13 +17,13 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-      # - name: Startup Container
-      #   shell: bash
-      #   run: |
-      #     # In this scenario with a fresh container used for testing,
-      #     # it is acceptable to use a plain-text password
-      #     docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Admin123" \
-      #     -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-latest
+      - name: Startup Container
+        shell: bash
+        run: |
+          # In this scenario with a fresh container used for testing,
+          # it is acceptable to use a plain-text password
+          docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Admin123" \
+          -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-latest
       - name: Install dependencies
         run: |
           python -m pip install --upgrade setuptools pip wheel
