@@ -29,7 +29,7 @@ jobs:
           # Give the container a moment to startup
           sleep 5
           # Execute SQL a query
-          /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Admin123 -q "CREATE DATABASE Faker"
+          /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P Admin123 -q "CREATE DATABASE Faker"
       - name: Install dependencies
         run: |
           python -m pip install --upgrade setuptools pip wheel
