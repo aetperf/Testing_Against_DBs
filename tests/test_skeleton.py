@@ -31,11 +31,11 @@ def test_main(capsys):
 
 def test_connection():
     """Test connection and write permissions with SQL Server."""
-    username = "SA"
+    username = "sa"
     password = "Admin123"
     server = "localhost"
     database = "Faker"
-    port = 1433
+    port = "1433"
     connect_string = f"mssql+pymssql://{username}:{password}@{server}:{port}/{database}"
 
     engine = create_engine(connect_string)
