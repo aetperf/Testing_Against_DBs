@@ -62,4 +62,4 @@ def test_connection():
 
     conn.close()
 
-    assert result == 3
+    assert result == 2
