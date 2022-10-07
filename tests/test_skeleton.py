@@ -26,8 +26,8 @@ def test_main(capsys):
     assert "The 7-th Fibonacci number is 13" in captured.out
 
 
-def test_tests():
-    assert False
+# def test_tests():
+#     assert False
 
 # def test_connection():
 #     """Test connection and write permissions with SQL Server."""
